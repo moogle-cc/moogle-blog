@@ -9,7 +9,7 @@
 4. Web hosting to serve this app
 5. Moogle account*
 
-\**If you don't want to use a Moogle account, read the section titled `Working without Moogle`.*
+\**If you don't want to use a Moogle account, read the section titled `Working without a Moogle Account`.*
 
 ## Build and Deploy the app
 
@@ -64,6 +64,17 @@ Here's a video showing you what post data looks like - https://youtu.be/QyeTGe8e
 
 So long as your API returns the same keys as the sample post, this react app should work out of the box.
 
+# Working without Moogle Account
+
+The simplest way to start using this app without creating a Moogle account is to make sure that
+
+1. Your `index.json` and `constants.json` should match the structure of the output of ${POSTS_URL} and ${CONSTANTS_URL} respectively.
+2. Your POST api, which returns the actual content of the blogpost, should match the structure of the output of ${POST_URL}
+
+If you can ensure this, you should be able to use any backend you want.
+
+For more advanced use cases, the source code is right here. Please fork the repo and make the changes you need to match your use case.
+
 # Conclusion
 
-That's all for now. See you in the issues list.
+That's all for now. See you in the issues list. Oh, and please keep the pull requests coming if you want to help grow this library.	
