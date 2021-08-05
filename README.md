@@ -1,3 +1,9 @@
+# Example blogs of actual Moogle users
+
+1. [DirtyDataGirl](https://dirtydatagirl.moogle.cc)
+2. [Stories for kids](https://tata-tales.moogle.cc)
+3. [NSSO Data](https://sandhyakrishnan.xyz) (also, the missus)
+
 # Getting Started
 
 ## Prerequisites 
