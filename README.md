@@ -64,7 +64,7 @@ Here's a video showing you what post data looks like - https://youtu.be/QyeTGe8e
 
 So long as your API returns the same keys as the sample post, this react app should work out of the box.
 
-# Working without Moogle Account
+# Working without a Moogle Account
 
 The simplest way to start using this app without creating a Moogle account is to make sure that
 
