@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@import "node_modules/bulma/sass/utilities/_all.sass";
+
+// Set your brand colors
+$grey: #3f3f3f;
+$pink: #f37782;
+$blue: #004165;
+$blue-light: #dff1f1;
+
+// Update Bulma's global variables
+$family-sans-serif: "Lato", sans-serif;
+$family-serif: "American Typewriter", serif;
+$grey-dark: $grey;
+$grey-light: $blue-light;
+$primary: #f37782;
+$link: $pink;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$family-secondary: $family-serif;
+$body-background-color: $white;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+$modal-background-background-color: bulmaRgba($scheme-invert, 0.55) !default
+
+// Import only what you need from Bulma
+@import "node_modules/bulma/sass/base/_all.sass";
+@import "node_modules/bulma/sass/layout/_all.sass";
+@import "node_modules/bulma/sass/components/_all.sass";
+@import "node_modules/bulma/sass/grid/_all.sass";
+@import "node_modules/bulma/sass/elements/_all.sass";
+@import "node_modules/bulma/sass/form/_all.sass";
+@import "node_modules/bulma/sass/helpers/_all.sass";
+@import "node_modules/bulma/sass/components/_all.sass";
