@@ -91,7 +91,9 @@ For more advanced use cases, the source code is right here. Please fork the repo
 * Return an extra field called `POST_PREFIX` in your `constants.json`. `constants.json` would look like so : {..., "POST_PREFIX": "/blog", ...}
 * Build and Deploy
 
-Technically, Step 1 above is an optional step. If you do not make that update, the generated code will expect static files from `/static/js` and `/static/css` files off the domain root. Updating `"homepage"` lets you localize all static files in `/blog/static/js` and `/blog/static/css`
+Technically, Step 1 above is an optional step. If you do not make that update, the generated code will expect static files from `/static/js` and `/static/css` files off the domain root. Updating `"homepage"` lets you localize all static files in `/blog/static/js` and `/blog/static/css`.
+
+It is worth pointing out that even though your blog is being served from `/blog`, this blog client will continue to look for `index.json` and `constants.json` at the top level domain `/`. You can adjust this setting by changing the `POSTS_URL` and `CONSTANTS_URL` setting inside `config.js`.
 
 ### Serving the blog on `/my-blog`
 
@@ -112,7 +114,9 @@ After the update, `index.js` would look like so:
 ```
 * Build and Deploy
 
-Technically, Step 1 above is an optional step. If you do not make that update, the generated code will expect static files from `/static/js` and `/static/css` files off the domain root. Updating `"homepage"` lets you serve static files from `/my-blog/static/js` and `/my-blog/static/css`
+Technically, Step 1 above is an optional step. If you do not make that update, the generated code will expect static files from `/static/js` and `/static/css` files off the domain root. Updating `"homepage"` lets you serve static files from `/my-blog/static/js` and `/my-blog/static/css`.
+
+It is worth pointing out that even though your blog is being served from `/blog`, this blog client will continue to look for `index.json` and `constants.json` at the top level domain `/`. You can adjust this setting by changing the `POSTS_URL` and `CONSTANTS_URL` setting inside `config.js`.
 
 
 ## Conclusion
