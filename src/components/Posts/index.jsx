@@ -44,7 +44,7 @@ const Posts = ({postId , posts, HOST, config, constants}) => {
                 posts.map((post, index) => {
                   if(postIsLive(post)) {
                     return(
-                      <Link className="has-text-dark" to={`${getPostUrlFragment(constants, post)}`}>
+                      <Link className="has-text-dark" to={constants ? `${getPostUrlFragment(constants, post)}` : `${getPostUrlFragment(undefined, post)}`}>
                         <li className="my-6 mx-3" id={postId} key={index + 1}> 
                           <article class="media">
                             <figure class="media-left">

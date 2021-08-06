@@ -1,11 +1,25 @@
 import moment from 'moment';
 
 export function getPostIdFromPost(post){
-   return post ? post.filepath.split('/').pop().split('-').pop().substring(0,6) : undefined;
+  const SUBSTRING_LENGTH = 6;
+  return post ? post.filepath.split('/').pop().split('-').pop().substring(0,SUBSTRING_LENGTH) : undefined;
 }
 
 export function flattenPostTitle(post_title){
   return post_title.replace(/\W+/g, '-').replace(/^-/,'').replace(/-$/,'').toLowerCase();
+}
+
+/**
+ * @rpPostId is either of the form 'my-blog-post--abc123' or just 'abc123'
+ * @returns 'abc123' in both cases
+ * */
+export function getPostIdFromRouteParam(rpPostId){
+  // the length of the suffix in --<suffix> should match the substring length 
+  // of ${SUBSTRING_LENGTH} in getPostIdFromPost
+  console.log(`Checking if postId matches MEDIUM or BARE regexes`);
+  const MEDIUM_STYLE_URL_REGEX = /.*--[a-zA-Z0-9]{6}$/;
+  const BARE_POSTID_REGEX = /^[A-Za-z0-9]{6}$/;
+  return MEDIUM_STYLE_URL_REGEX.test(rpPostId) ? rpPostId.split('-').pop() : BARE_POSTID_REGEX.test(rpPostId) ? rpPostId : undefined;
 }
 
 export function getPostPrefixFromConstants(constants) { return constants && constants.POST_PREFIX ? constants.POST_PREFIX : ''; }
@@ -23,6 +37,8 @@ export function getPostUrlFromPost(post, config, constants) {
 
 export function updateCssVariables(constants, root){
   if(constants && root){
+    // this just sample code to change css after the blog post has loaded.
+    // As written, this code does nothing
     if(constants.LINK_COLOR) root.style.setProperty("--moogle-link-text-color", constants.LINK_COLOR);
     if(constants.FONT_PRIMARY) root.style.setProperty("--moogle-font", constants.FONT_PRIMARY);
     if(constants.FONT_FALLBACK) root.style.setProperty("--moogle-font-fallback", constants.FONT_FALLBACK);
@@ -87,5 +103,8 @@ export function getFeaturedContent(postJSON) {
 }
 
 export function getPostUrlFragment (constants, post){
+  if(constants && constants.MEDIUM_STYLE_URL) {
+    return `${getPostPrefixFromConstants(constants)}/${flattenPostTitle(post.post_title)}--${getPostIdFromPost(post)}`;
+  }
   return `${getPostPrefixFromConstants(constants)}/${getPostIdFromPost(post)}/${flattenPostTitle(post.post_title)}`;
 }
