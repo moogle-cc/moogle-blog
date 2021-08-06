@@ -83,6 +83,38 @@ If you can ensure this, you should be able to use any backend you want.
 
 For more advanced use cases, the source code is right here. Please fork the repo and make the changes you need to match your use case.
 
+# Advanced Topics
+
+## Serving the blog on `/blog`
+
+* Update `homepage` in `package.son`. The default value of `homepage` is `/`. This will have to be changed so: `"homepage"`: `"/blog"`. 
+* Return an extra field called `POST_PREFIX` in your `constants.json`. `constants.json` would look like so : {..., "POST_PREFIX": "/blog", ...}
+* Build and Deploy
+
+Technically, Step 1 above is an optional step. If you do not make that update, the generated code will expect static files from `/static/js` and `/static/css` files off the domain root. Updating `"homepage"` lets you localize all static files in `/blog/static/js` and `/blog/static/css`
+
+## Serving the blog on `/my-blog`
+
+* Update `homepage` in `package.son`. The default value of `homepage` is `/`. This can be changed to whatever value you want like so: `"homepage"`: `"/my-blog"`
+* Return an extra field called `POST_PREFIX` in your `constants.json`. `constants.json` would look like so : `{..., "POST_PREFIX": "/my-blog", ...}`
+* Update `index.js` to ensure that routes to both `Home` and `App` are correctly configured. 
+
+Right now, `index.js` supports routes like `/blog/:id/:title` and `/:id/:title` with `/:id` being the necessary route param. By default, the app assumes that the blog runs off the toplevel domain on `/`.
+
+After the update, `index.js` would look like so:
+
+```javascript
+<Route path="/my-blog" exact component={Home} />
+<Route path="/my-blog/" exact component={Home} />
+<Route path="/my-blog/:id/:url" component={App} />
+<Route path="/my-blog/:id/:url/" component={App} />
+
+```
+* Build and Deploy
+
+Technically, Step 1 above is an optional step. If you do not make that update, the generated code will expect static files from `/static/js` and `/static/css` files off the domain root. Updating `"homepage"` lets you serve static files from `/my-blog/static/js` and `/my-blog/static/css`
+
+
 # Conclusion
 
 That's all for now. See you in the repo's issues list. Please keep the pull requests coming if you want to help grow this app.
