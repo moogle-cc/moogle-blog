@@ -1,12 +1,12 @@
-# Example blogs of actual Moogle users
+## Example blogs of actual Moogle users
 
 1. [DirtyDataGirl](https://dirtydatagirl.moogle.cc)
 2. [Stories for kids](https://tata-tales.moogle.cc)
 3. [NSSO Data](https://sandhyakrishnan.xyz) (also, the missus)
 
-# Getting Started
+## Getting Started
 
-## Prerequisites 
+### Prerequisites 
 
 0. Familiarity with React and SPA concepts
 1. `node` and `npm` installed locally. I use `16.4.0` and `7.18.1` respectively.
@@ -17,7 +17,7 @@
 
 \**If you don't want to use a Moogle account, read the section titled `Working without a Moogle Account`.*
 
-## Build and Deploy the app
+### Build and Deploy the app
 
 1. Clone this repo
 2. `cd` into the PROJECT_ROOT
@@ -26,9 +26,9 @@
 4. Copy the contents of the `build` directory to your hosting
 5. Visit your blog in the browser
 
-# Next Steps
+## Next Steps
 
-## Updating the CSS inside the PROJECT
+### Updating the CSS inside the PROJECT
 
 If you want to regenerate `brand-style.css` after editing `PROJECT_ROOT/sass/brand-style.scss`, you need to do the following steps
 
@@ -37,29 +37,29 @@ If you want to regenerate `brand-style.css` after editing `PROJECT_ROOT/sass/bra
 3. This will replace the current `brand-style.css` css file inside `src/` with your version with the same name
 4. Build and deploy the app
 
-## Updating the CSS outside PROJECT_ROOT
+### Updating the CSS outside PROJECT_ROOT
 
 If you want to compile `brand-style.css` from `PROJECT_ROOT/sass/brand-style.scss` outside the PROJECT_ROOT, follow [these intructions from Bulma](https://bulma.io/documentation/customize/with-node-sass/) with one minor change
 
 1. Instead of using `mystyles.scss` from the Bulma website, start with `PROJECT_ROOT/sass/brand-style.scss` 
 
-# Getting Oriented
+## Getting Oriented
 
 [The Moogle blog](https://moogle.cc/blog/) is a single page React blog scaffolded using `create-react-app`. 
 
 You can think of Moogle as the client for a headless Moogle CMS. The Moogle CMS consists of a series of APIs to download content and manage your backend. The two primary APIs - to get the list of blogposts and the content of single blogpost are given below.
 
-### What this repo is not
+#### What this repo is not
 
 This repo is the public facing portion of your blog. It presents a list of posts. Clicking on a linked post shows the full post. *It does not include an Admin page for the blog*. The admin page source code will be released separately.
 
-## List of Blogposts
+### List of Blogposts
 
 Moogle assumes that the list of available posts of a blog can be downloaded from `your-domain.com/index.json`. This setting is controlled by `$POSTS_URL` in `config.js`.
 
 You can see what Moogle expects the content of `index.json` to look like @ https://blog.moogle.cc/index.json
 
-## Blogpost data
+### Blogpost data
 
 For a given blogpost, Moogle pulls that blog post's data in JSON format from following URL `your-domain.com/post?id=<post-id>`. `id` here refers to some unique identifier which the backend uses to return your post'a content. 
 
@@ -72,7 +72,7 @@ Here's a video showing you what post data looks like - https://youtu.be/QyeTGe8e
 
 So long as your API returns the same keys as the sample post, this react app should work out of the box.
 
-# Working without a Moogle Account
+## Working without a Moogle Account
 
 The simplest way to start using this app without creating a Moogle account is to make sure that
 
@@ -83,9 +83,9 @@ If you can ensure this, you should be able to use any backend you want.
 
 For more advanced use cases, the source code is right here. Please fork the repo and make the changes you need to match your use case.
 
-# Advanced Topics
+## Advanced Topics
 
-## Serving the blog on `/blog`
+### Serving the blog on `/blog`
 
 * Update `homepage` in `package.son`. The default value of `homepage` is `/`. This will have to be changed so: `"homepage"`: `"/blog"`. 
 * Return an extra field called `POST_PREFIX` in your `constants.json`. `constants.json` would look like so : {..., "POST_PREFIX": "/blog", ...}
@@ -93,7 +93,7 @@ For more advanced use cases, the source code is right here. Please fork the repo
 
 Technically, Step 1 above is an optional step. If you do not make that update, the generated code will expect static files from `/static/js` and `/static/css` files off the domain root. Updating `"homepage"` lets you localize all static files in `/blog/static/js` and `/blog/static/css`
 
-## Serving the blog on `/my-blog`
+### Serving the blog on `/my-blog`
 
 * Update `homepage` in `package.son`. The default value of `homepage` is `/`. This can be changed to whatever value you want like so: `"homepage"`: `"/my-blog"`
 * Return an extra field called `POST_PREFIX` in your `constants.json`. `constants.json` would look like so : `{..., "POST_PREFIX": "/my-blog", ...}`
@@ -115,6 +115,6 @@ After the update, `index.js` would look like so:
 Technically, Step 1 above is an optional step. If you do not make that update, the generated code will expect static files from `/static/js` and `/static/css` files off the domain root. Updating `"homepage"` lets you serve static files from `/my-blog/static/js` and `/my-blog/static/css`
 
 
-# Conclusion
+## Conclusion
 
 That's all for now. See you in the repo's issues list. Please keep the pull requests coming if you want to help grow this app.
