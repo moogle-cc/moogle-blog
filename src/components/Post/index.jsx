@@ -24,7 +24,7 @@ const Post = ({postMeta}) => {
     <div className="columns">
       <div className="column"></div>
       <div className="column is-three-fifths mx-4">
-        <p className="is-family-secondary is-size-4 has-text-left"> { postMeta ? (postIsLive(postMeta) ? postMeta.subject : 'Post not found!') : (postDownloadStatus === 'failed' ? 'Post Not Found': 'Loading...') }</p>
+        <p className="is-family-secondary is-size-4 has-text-left"> { postMeta ? (postIsLive(postMeta) ? postMeta.post_title : 'Post not found!') : (postDownloadStatus === 'failed' ? 'Post Not Found': 'Loading...') }</p>
         <div className="dlc">
           <h6>{attachments && attachments.length > 0 && postIsLive(postMeta) ? "Downloads:" : ""}</h6>
           <ul>
