@@ -3,27 +3,24 @@ import moment from 'moment';
 export function getPostIdFromPost(post){
    return post ? post.filepath.split('/').pop().split('-').pop().substring(0,6) : undefined;
 }
+
 export function flattenPostTitle(post_title){
   return post_title.replace(/\W+/g, '-').replace(/^-/,'').replace(/-$/,'').toLowerCase();
 }
+
 export function getPostPrefixFromConstants(constants) { return constants && constants.POST_PREFIX ? constants.POST_PREFIX : ''; }
 export function getPostUrl(postId, postUrl, config, constants) { 
   let postPrefix = getPostPrefixFromConstants(constants);
   return `${config.HOST.origin}${postPrefix}/${postId}/${postUrl}`;
 }
+
 export function getPostUrlFromPost(post, config, constants) { 
   let postId = getPostIdFromPost(post)
   let postUrl = flattenPostTitle(post.post_title);
   let postPrefix = getPostPrefixFromConstants(constants);
   return `${config.HOST.origin}${postPrefix}/${postId}/${postUrl}`;
 }
-export function getPostIdIndex(constants){
-  let a = (getPostPrefixFromConstants(constants).split('/').reduce((accum, p) => {
-    if(p.trim().length > 0) accum += 1;
-    return accum;
-  }, 0)) + 1;
-  return a;
-}
+
 export function updateCssVariables(constants, root){
   if(constants && root){
     if(constants.LINK_COLOR) root.style.setProperty("--moogle-link-text-color", constants.LINK_COLOR);
@@ -31,6 +28,7 @@ export function updateCssVariables(constants, root){
     if(constants.FONT_FALLBACK) root.style.setProperty("--moogle-font-fallback", constants.FONT_FALLBACK);
   }
 }
+
 export function stripCRLFTDoubleQuotesFromHTML(html) {
   return html.replace(/[\n\r\t]/g, "").replace(/"/g, "'");
 }
