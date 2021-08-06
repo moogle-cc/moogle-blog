@@ -119,6 +119,16 @@ Technically, Step 1 above is an optional step. If you do not make that update, t
 It is worth pointing out that even though your blog is being served from `/blog`, this blog client will continue to look for `index.json` and `constants.json` at the top level domain `/`. You can adjust this setting by changing the `POSTS_URL` and `CONSTANTS_URL` setting inside `config.js`.
 
 
+## Features List
+
+1. Serve your blog on your own domain
+
+2. Serve downloadable content along with your blogpost - since the Moogle CMS receives content via email, you can attach any document to your email and the Moogle backend will handle it without any issues. Attachment details are in the blogpost data object as a key.
+
+3. Social/SEO aware - the Moogle blog takes care of replacing important `meta` tags like `Title`, `Description`, `og:title`, and `og:description`. This allows you to share your posts on social media or with search engines without having to worry about their `meta` details. Here is an [example](https://www.heymeta.com/url/dirtydatagirl.moogle.cc/rf7put/i-might-have-gone-a-little-bit-overboard) of how our posts are read by social media sites.
+
+4. Sensible caching - Our backend comes with sensible caching rules so that blogposts can be delivered from a location close to the reader and at a low cost. 
+
 ## Conclusion
 
 That's all for now. See you in the repo's issues list. Please keep the pull requests coming if you want to help grow this app.
