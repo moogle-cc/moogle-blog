@@ -19,6 +19,10 @@ ReactDOM.render(
       <Route path="/blog/:id/:url" component={App} />
       <Route path="/blog/post/:id/:url" component={App} />
       <Route path="/post/:id/:url" component={App} />
+      <Route path="/:id" component={App} />
+      <Route path="/blog/:id" component={App} />
+      <Route path="/blog/post/:id" component={App} />
+      <Route path="/post/:id" component={App} />
     </Switch>
   </BrowserRouter>
   ,document.getElementById('root')
