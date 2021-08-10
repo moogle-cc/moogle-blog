@@ -108,3 +108,12 @@ export function getPostUrlFragment (constants, post){
   }
   return `${getPostPrefixFromConstants(constants)}/${getPostIdFromPost(post)}/${flattenPostTitle(post.post_title)}`;
 }
+
+export function subscriptionEmbedInConstantsIsAUrl(constants) {
+  try{
+    new URL(constants.SUBSCRIPTION_EMBED);
+    return true;
+  } catch(e) {
+    return false;
+  }
+}
