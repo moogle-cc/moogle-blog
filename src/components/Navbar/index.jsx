@@ -18,13 +18,13 @@ const Navbar = ({blogTitle, config, constants}) => {
         <>
           <div className="column"></div>
           <div className="column is-three-fifths has-text-centered">
-            <a className="has-text-dark is-size-3-desktop is-size-5-mobile is-family-secondary" href="/"> {blogTitle} </a>
+            <a className="has-text-dark is-size-3-desktop is-size-5-mobile is-family-secondary" href={`${process.env.PUBLIC_URL}`}> {blogTitle} </a>
           </div>
           <div className="column"></div> 
         </>:
         <>
           <div className="column has-text-centered">
-            <a className="has-text-dark is-size-5-touch is-size-4-desktop m-2 p-2 is-family-secondary" href="/"> {blogTitle} </a>
+            <a className="has-text-dark is-size-5-touch is-size-4-desktop m-2 p-2 is-family-secondary" href={`${process.env.PUBLIC_URL}`}> {blogTitle} </a>
             <div className={`dropdown is-right is-hoverable ${embedIsAUrl ? 'is-hidden' : ''}`}>
               <div className="dropdown-trigger">
                 <button className="button" aria-haspopup="true" aria-controls="dropdown-menu6">
